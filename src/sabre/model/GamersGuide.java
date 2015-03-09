@@ -70,7 +70,7 @@ public class GamersGuide implements Comparable
 		{
 			compared = -1;
 		}
-		else if (this.numberOfPlayers < ((GamersGuide) comparedGames).getNumberOfPlayers() || (!this.isFun && ((GamersGuide) comparedGames).isFun()))
+		else if (this.numberOfPlayers > ((GamersGuide) comparedGames).getNumberOfPlayers() || (this.isFun && !((GamersGuide) comparedGames).isFun()))
 		{
 			compared = 1;
 		}
