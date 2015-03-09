@@ -15,7 +15,7 @@ public class SabreSort
 	{
 		String timeToSort = "";
 		
-		timeToSort += "Days: " + sortTime / (1000 * 60 * 60 * 24) + "\n";
+		timeToSort += "\nDays: " + sortTime / (1000 * 60 * 60 * 24) + "\n";
 		timeToSort += "Hours: " + sortTime / (1000 * 60 * 60) % 24 + "\n";
 		timeToSort += "Minutes: " + sortTime / (1000 * 60) % 60 + "\n";
 		timeToSort += "Seconds: " + sortTime / (1000) % 60 + "\n";

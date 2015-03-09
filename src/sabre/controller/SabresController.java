@@ -60,17 +60,6 @@ public class SabresController
 	public void start()
 	{
 		fillTheArrays();
-		for (int spot : wholeNumbers)
-		{
-			System.out.print(spot + ", ");
-		}
-		System.out.println();
-		mySabre.selectionSort(wholeNumbers);
-		System.out.print(mySabre.sortingTime(mySabre.getSortTime()));
-		for (int spot : wholeNumbers)
-		{
-			System.out.print(spot + ", ");
-		}
 	}
 	
 	private void fillTheArrays()
@@ -95,10 +84,10 @@ public class SabresController
 	
 	private void randomIntArray()
 	{
-		wholeNumbers = new int[2000000];
+		wholeNumbers = new int[20];
 		for (int spot = 0; spot < wholeNumbers.length; spot++)
 		{
-			wholeNumbers[spot] = (int) (Math.random() * 234532);
+			wholeNumbers[spot] = (int) (Math.random() * 555555);
 		}
 	}
 }

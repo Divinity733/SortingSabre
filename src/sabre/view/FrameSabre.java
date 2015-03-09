@@ -17,7 +17,7 @@ public class FrameSabre extends JFrame
 	
 	private void setupFrame()
 	{
-		this.setSize(600, 800);
+		this.setSize(700, 400);
 		this.setContentPane(appPanel);
 		this.setVisible(true);
 	}
