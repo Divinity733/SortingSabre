@@ -5,6 +5,8 @@ public class SabreSort
 	private long startTime;
 	private long endTime;
 	private long sortTime;
+	private int array[];
+    private int length;
 	
 	public long getSortTime()
 	{
@@ -81,6 +83,45 @@ public class SabreSort
 		
 		return toBeSorted;
 	}
+	
+	public void sort(int[] inputArr)
+	{
+        quickSort(inputArr, 0, inputArr.length - 1);
+    }
+	
+	public void quickSort(int blah[], int lowerIndex, int higherIndex)
+	{
+        
+        int i = lowerIndex;
+        int j = higherIndex;
+        if(j - i >= 1)
+        {
+        	int pivot = blah[lowerIndex];
+            while (j > i)
+            {
+                while (blah[i] <= pivot && i <= j && j > i)
+                {
+                    i++;
+                }
+                while (blah[j] > pivot && j > i && j >= i)
+                {
+                    j--;
+                }
+                if (j > i)
+                {
+                    swap(blah, i, j);
+                }
+            }
+            swap(blah, i, j);
+            
+            quickSort(blah, i, j - 1);
+            quickSort(blah, i + 1, j);
+        }
+        else
+        {
+        	return;
+        }
+    }
 	
 	private void swap(int[] array, int position, int change)
 	{

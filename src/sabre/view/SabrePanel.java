@@ -15,6 +15,7 @@ public class SabrePanel extends JPanel
 	private SpringLayout baseLayout;
 	private JScrollPane textPane;
 	private JButton sortButt;
+	private JButton quickSortButt;
 	private JTextArea displayArea;
 	private JTextField inputField;
 	
@@ -23,6 +24,7 @@ public class SabrePanel extends JPanel
 		this.baseControl = baseController;
 		
 		sortButt = new JButton("Sort");
+		quickSortButt = new JButton("Quick Sort");
 		inputField = new JTextField(20);
 		baseLayout = new SpringLayout();
 		displayArea = new JTextArea(15, 35);
@@ -50,6 +52,7 @@ public class SabrePanel extends JPanel
 		this.add(textPane);
 		this.setSize(700, 400);
 		this.add(sortButt);
+		this.add(quickSortButt);
 		this.add(inputField);
 		inputField.setBackground(Color.RED);
 	}
@@ -61,8 +64,12 @@ public class SabrePanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, textPane, 270, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.WEST, sortButt, 41, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.EAST, sortButt, -500, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, sortButt, -61, SpringLayout.SOUTH, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, sortButt, -10, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, quickSortButt, -61, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, quickSortButt, 200, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, quickSortButt, -10, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, quickSortButt, -325, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, sortButt, -61, SpringLayout.SOUTH, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, inputField, 98, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, inputField, 0, SpringLayout.WEST, sortButt);
 		baseLayout.putConstraint(SpringLayout.SOUTH, inputField, 168, SpringLayout.NORTH, this);
@@ -80,6 +87,25 @@ public class SabrePanel extends JPanel
 					rawArray += number + " ";
 				}
 				baseControl.getMySabre().selectionSort(baseControl.getWholeNumbers());
+				rawArray += baseControl.getMySabre().sortingTime(baseControl.getMySabre().getSortTime());
+				for (int number : baseControl.getWholeNumbers())
+				{
+					rawArray += number + " ";
+				}
+				displayArea.setText(rawArray);
+			}
+		});
+		
+		quickSortButt.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String rawArray = "";
+				for (int number : baseControl.getWholeNumbers())
+				{
+					rawArray += number + " ";
+				}
+				baseControl.getMySabre().sort(baseControl.getWholeNumbers());
 				rawArray += baseControl.getMySabre().sortingTime(baseControl.getMySabre().getSortTime());
 				for (int number : baseControl.getWholeNumbers())
 				{

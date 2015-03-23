@@ -64,8 +64,9 @@ public class SabresController
 	
 	private void fillTheArrays()
 	{
-		randomIntArray();
+		// randomIntArray();
 		// randomDoubleArray();
+		quickSorter();
 	}
 	
 	private void randomDoubleArray()
@@ -83,6 +84,15 @@ public class SabresController
 	}
 	
 	private void randomIntArray()
+	{
+		wholeNumbers = new int[20];
+		for (int spot = 0; spot < wholeNumbers.length; spot++)
+		{
+			wholeNumbers[spot] = (int) (Math.random() * 555555);
+		}
+	}
+	
+	private void quickSorter()
 	{
 		wholeNumbers = new int[20];
 		for (int spot = 0; spot < wholeNumbers.length; spot++)
