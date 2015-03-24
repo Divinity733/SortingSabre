@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 import sabre.controller.SabresController;
 import sabre.view.TableCellWrapRenderer;
@@ -12,12 +13,15 @@ import sabre.view.TableCellWrapRenderer;
 public class SabrePanel extends JPanel
 {
 	private SabresController baseControl;
+//	private JTable tableData;
 	private SpringLayout baseLayout;
 	private JScrollPane textPane;
 	private JButton sortButt;
 	private JButton quickSortButt;
 	private JTextArea displayArea;
 	private JTextField inputField;
+//	private JScrollPane tablePane;
+//	private TableCellWrapRenderer myCellRender;
 	
 	public SabrePanel(SabresController baseController)
 	{
@@ -29,12 +33,28 @@ public class SabrePanel extends JPanel
 		baseLayout = new SpringLayout();
 		displayArea = new JTextArea(15, 35);
 		textPane = new JScrollPane(displayArea);
+//		myCellRender = new TableCellWrapRenderer();
 		
+//		setupTable();
 		setupPane();
 		setupPanel();
 		setupLayout();
 		heyListen();
 	}
+	
+//	private void setupTable()
+//	{
+//		String[] colHeader = { "Column 1", "Column 2" };
+//		
+//		tableData = new JTable(new DefaultTableModel(baseControl.getMySabre(), colHeader));
+//		
+//		for (int col = 0; col < tableData.getColumnCount(); col++)
+//		{
+//			tableData.getColumnModel().getColumn(col).setCellRenderer(myCellRender);
+//		}
+//		
+//		tablePane = new JScrollPane(tableData);
+//	}
 	
 	private void setupPane()
 	{
