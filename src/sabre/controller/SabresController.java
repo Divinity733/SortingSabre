@@ -1,5 +1,7 @@
 package sabre.controller;
 
+import java.util.ArrayList;
+
 import sabre.view.FrameSabre;
 import sabre.model.*;
 
@@ -8,18 +10,31 @@ public class SabresController
 	private FrameSabre appFrame;
 	private SabreSort mySabre;
 	private int[] wholeNumbers;
+	private int[] wholeNumbersQuick;
 	private double[] realNumbers;
 	private String[] wordage;
+	private ArrayList<Integer> arrayList;
 	
 	public SabresController()
 	{
 		mySabre = new SabreSort();
 		appFrame = new FrameSabre(this);
+		arrayList = new ArrayList<Integer>();
 	}
 	
+	public ArrayList<Integer> getArrayList()
+	{
+		return arrayList;
+	}
+
 	public int[] getWholeNumbers()
 	{
 		return wholeNumbers;
+	}
+	
+	public int[] getWholeNumbersQuick()
+	{
+		return wholeNumbersQuick;
 	}
 	
 	public double[] getRealNumbers()
@@ -32,22 +47,38 @@ public class SabresController
 		return wordage;
 	}
 	
-	public void setAppFrame(FrameSabre appFrame)
+	public void setArrayList(
+			ArrayList<Integer> arrayList)
+	{
+		this.arrayList = arrayList;
+	}
+	
+	public void setAppFrame(
+			FrameSabre appFrame)
 	{
 		this.appFrame = appFrame;
 	}
 	
-	public void setWholeNumbers(int[] wholeNumbers)
+	public void setWholeNumbers(
+			int[] wholeNumbers)
 	{
 		this.wholeNumbers = wholeNumbers;
 	}
 	
-	public void setRealNumbers(double[] realNumbers)
+	public void setWholeNumbersQuick(
+			int[] wholeNumbersQuick)
+	{
+		this.wholeNumbersQuick = wholeNumbersQuick;
+	}
+	
+	public void setRealNumbers(
+			double[] realNumbers)
 	{
 		this.realNumbers = realNumbers;
 	}
 	
-	public void setWordage(String[] wordage)
+	public void setWordage(
+			String[] wordage)
 	{
 		this.wordage = wordage;
 	}
@@ -64,9 +95,10 @@ public class SabresController
 	
 	private void fillTheArrays()
 	{
-		// randomIntArray();
-		// randomDoubleArray();
+		randomIntArray();
+		randomDoubleArray();
 		quickSorter();
+		randomArrayListArray();
 	}
 	
 	private void randomDoubleArray()
@@ -85,19 +117,30 @@ public class SabresController
 	
 	private void randomIntArray()
 	{
-		wholeNumbers = new int[20];
+		wholeNumbers = new int[5000];
 		for (int spot = 0; spot < wholeNumbers.length; spot++)
 		{
 			wholeNumbers[spot] = (int) (Math.random() * 555555);
 		}
 	}
 	
-	private void quickSorter()
+	private void randomArrayListArray()
 	{
-		wholeNumbers = new int[20];
+		wholeNumbers = new int[5000];
 		for (int spot = 0; spot < wholeNumbers.length; spot++)
 		{
-			wholeNumbers[spot] = (int) (Math.random() * 555555);
+			int myRandom = (int) (Math.random() * 36000);
+			wholeNumbers[spot] = myRandom;
+			arrayList.add(myRandom);
+		}
+	}
+	
+	private void quickSorter()
+	{
+		wholeNumbersQuick = new int[20];
+		for (int spot = 0; spot < wholeNumbersQuick.length; spot++)
+		{
+			wholeNumbersQuick[spot] = (int) (Math.random() * 555555);
 		}
 	}
 }
